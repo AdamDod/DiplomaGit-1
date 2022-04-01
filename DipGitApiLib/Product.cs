@@ -17,15 +17,27 @@ namespace DipGitApiLib {
         /// </summary>
         /// <returns></returns>
         public int GetTotalQtyProducts() {
-            throw new NotImplementedException();
+            int totalQ = 0;
+
+            foreach(Product product in ProductList) {
+                totalQ += product.Qty;
+            }
+
+            return totalQ;
         }
 
         /// <summary>
         /// Gets the total cost of inventory, that is the sum of the cost of all items 
         /// </summary>
         /// <returns></returns>
-        public int GetTotalValueProducts() {
-            throw new NotImplementedException();
+        public float GetTotalValueProducts() {
+            float totalCost = 0;
+
+            foreach(Product product in ProductList) {
+                 totalCost += (product.Price * product.Qty);
+            }
+
+            return totalCost;
         }
     }
 }
